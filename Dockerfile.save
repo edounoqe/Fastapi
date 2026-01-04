@@ -1,0 +1,8 @@
+docker build -t todo-fastapi .
+docker run --rm -p 8000:8000 todo-fastapi
+
+
+
+^X
+^X
+
