@@ -3,7 +3,7 @@ from typing import List, Optional
 from fastapi import Form
 
 class Todo(BaseModel):
-    id: Optional[int]
+    id: Optional[int] = None
     item: str
 
     @classmethod
@@ -18,7 +18,7 @@ class TodoItem(BaseModel):
     item: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
             "item": "Read the next chapter of the book"
             }
@@ -26,9 +26,9 @@ class TodoItem(BaseModel):
 
 class TodoItems(BaseModel):
     todos: List[TodoItem]
-
-    class config:
-        schema_extra = {
+    
+    class Config:
+        json_schema_extra = {
             "example": {
                 "todos": [
                     {
